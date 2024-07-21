@@ -5,7 +5,8 @@ body {
     background-image: url('background.jpg'); /* Add your image URL here */
     background-size: cover;
     background-position: center;
-    color: white;
+    color: black;
+    font-weight: bold;
     text-shadow: 2px 2px 4px #000000;
 }
 form {
