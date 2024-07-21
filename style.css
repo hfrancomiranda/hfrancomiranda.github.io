@@ -2,9 +2,9 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0; /* Updated to ensure the background image covers the entire page */
-    background-image: url('background.jpg'); /* Add your image URL here */
+/*     background-image: url('background.jpg'); /* Add your image URL here */ */
     background-size: cover;
-    background-position: bottom right;
+/*     background-position: bottom right; */
     color: black;
 }
 form {
