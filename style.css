@@ -123,3 +123,9 @@ h2 {
     border-radius: 10px;
     font-size: 16px;
 }
+.main-image2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px; /* Adjust the height automatically to maintain aspect ratio */
+}
