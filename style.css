@@ -1,10 +1,9 @@
+
 body {
     font-family: Arial, sans-serif;
-/*     margin: 0; /* Updated to ensure the background image covers the entire page */ */
-/*     background-image: url('background.jpg'); /* Add your image URL here */ */
     background-size: cover;
-/*     background-position: bottom right; */
     color: black;
+    position: relative; /* Add this line */
 }
 form {
     background-color: #f2f2f2;
@@ -32,9 +31,34 @@ input[type=submit] {
 }
 input[type=submit]:hover {
     background-color: #45a049;
-
+}
 /* change heading color */
 h1 {
-    color: blue;
+    color: purple;
 }
-
+h2 {
+    color: darkviolet;
+    font-style: italic;
+    font-family: 'Lucida Handwriting', cursive;
+}
+.action-buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+}
+.action-buttons a {
+   text-decoration: none;
+    padding: 10px 20px;
+    margin-left: 20px; /* Space between button and link */
+}
+.action-buttons button {
+    background-color: purple;
+    color: white;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 20px;
+}
