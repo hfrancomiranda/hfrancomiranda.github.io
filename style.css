@@ -129,3 +129,6 @@ h2 {
     margin-right: auto;
     height: 500px; /* Adjust the height automatically to maintain aspect ratio */
 }
+.centered-text {
+    text-align: center;
+}
