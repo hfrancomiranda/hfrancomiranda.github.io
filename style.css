@@ -33,20 +33,8 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: #45a049;
 
-/* CSS to move the About Us to the top right corner */
-.main-navigation {
-    display: flex;
-    justify-content: flex-end;
+/* change heading color */
+h1 {
+    color: blue;
 }
 
-.main-navigation li {
-    width: 100%;
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.main-navigation li {
-    margin-left: 20px; /* Spacing between links */
-}
