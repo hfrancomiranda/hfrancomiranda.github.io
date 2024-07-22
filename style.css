@@ -83,3 +83,27 @@ h2 {
     width: 50%;
     border-radius: 20px;
 }
+/* Responsive adjustments */
+@media (max-width: 414px) {
+    body {
+        font-size: 14px;
+    }
+    .image-text-container, .main-image {
+        width: 100%;
+        height: auto; /* Adjust height for mobile */
+    }
+    .text-overlay {
+        width: 80%; /* Make the overlay a bit wider on smaller screens */
+        font-size: 16px; /* Increase font size for readability */
+    }
+    form {
+        padding: 10px; /* Reduce padding */
+    }
+    input, textarea {
+        padding: 8px; /* Adjust input padding */
+    }
+    .action-buttons a, .action-buttons button {
+        padding: 8px 15px; /* Adjust button padding */
+        font-size: 14px; /* Adjust font size */
+    }
+}
