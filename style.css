@@ -132,3 +132,23 @@ h2 {
 .centered-text {
     text-align: center;
 }
+.text-box-container {
+    display: flex;
+    flex-direction: row; /* Ensures horizontal layout */
+    justify-content: space-between; /* Adjusts spacing between text boxes */
+    flex-wrap: wrap; /* Allows items to wrap to the next line if needed */
+    }
+.editable-div {
+    width: 20%; /* Adjust width as needed */
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    height: 70px; /* Adjust height based on content */
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    overflow: auto;
+    background-color: purple;
+    color: white;
+}
