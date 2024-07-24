@@ -20,7 +20,7 @@ app.post('/submitRequest', async (req, res) => {
   const { firstname, lastname, email, service, details } = req.body;
   try {
     const result = await pool.query(
-      'INSERT INTO customer_requests(firstname, lastname, email, service, details) VALUES($1, $2, $3, $4, $5) RETURNING *',
+      'COPY customer_requests(firstname, lastname, email, service, details) VALUES($1, $2, $3, $4, $5) RETURNING *',
       [firstname, lastname, email, service, details]
     );
     res.status(201).send(result.rows[0]);
