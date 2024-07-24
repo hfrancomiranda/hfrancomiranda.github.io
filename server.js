@@ -1,7 +1,7 @@
 const express = require('express');
 const { Pool } = require('pg');
 const app = express();
-const port = 3000;
+const port = 5432;
 
 // Connect to your PostgreSQL database
 const pool = new Pool({
