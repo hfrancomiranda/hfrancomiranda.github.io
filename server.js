@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const { Pool } = require('pg');
 const app = express();
 const port = 5432;
@@ -12,8 +13,8 @@ const pool = new Pool({
   port: 5432,
 });
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Endpoint to handle form submission
 app.post('http://localhost:5432/submitRequest', async (req, res) => {
