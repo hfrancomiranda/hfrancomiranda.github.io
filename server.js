@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Endpoint to handle form submission
-app.post('http://localhost:5432/submitRequest', async (req, res) => {
+app.post('/submitRequest', async (req, res) => {
   const { firstname, lastname, email, service, details } = req.body;
   try {
     const result = await pool.query(
