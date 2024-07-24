@@ -1,32 +1,38 @@
+
 const express = require('express');
 const { Pool } = require('pg');
-const app = express();
-const port = 5432;
+const bodyParser = require('body-parser');
 
-// Connect to your PostgreSQL database
+const app = express();
+const port = 5000;
+
+// Configure PostgreSQL connection
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'finances',
-  // password: 'yourPassword',
+  password: '',
   port: 5432,
 });
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// Endpoint to handle form submission
+// POST endpoint to receive form data
 app.post('/submitRequest', async (req, res) => {
   const { firstname, lastname, email, service, details } = req.body;
   try {
-    const result = await pool.query(
-      'COPY customer_requests(firstname, lastname, email, service, details) VALUES($1, $2, $3, $4, $5) RETURNING *',
-      [firstname, lastname, email, service, details]
-    );
-    res.status(201).send(result.rows[0]);
+    const query = 'INSERT INTO customer_requests(firstname, lastname, email, service, details) VALUES($1, $2, $3, $4, $5)';
+    const values = [firstname, lastname, email, service, details];
+    
+    // Insert form data into the PostgreSQL database
+    await pool.query(query, values);
+    
+    res.send('Request submitted successfully.');
   } catch (error) {
-    console.error('Error inserting data', error);
-    res.status(500).send('Server error');
+    console.error('Error submitting request:', error);
+    res.status(500).send('Failed to submit request.');
   }
 });
 
