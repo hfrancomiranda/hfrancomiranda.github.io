@@ -4,7 +4,7 @@ const { Pool } = require('pg');
 const bodyParser = require('body-parser');
 
 const app = express();
-const port = process.env.port || 8080;
+const port = process.env.port;
 
 // Configure PostgreSQL connection
 const pool = new Pool({
