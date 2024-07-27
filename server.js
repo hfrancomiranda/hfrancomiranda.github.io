@@ -18,20 +18,20 @@ const pool = new Pool({
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// POST endpoint to receive form data and query the database
-app.post('/getRequest', async (req, res) => {
-  const { firstname, lastname, email, service } = req.body;
+// POST endpoint to receive form data
+app.post('/submitRequest', async (req, res) => {
+  const { firstname, lastname, email, service, details } = req.body;
   try {
-    const query = 'SELECT * FROM customer_requests WHERE firstname = $1 AND lastname = $2 AND email = $3 AND service = $4';
-    const values = [firstname, lastname, email, service];
+    const query = 'INSERT INTO customer_requests(firstname, lastname, email, service, details) VALUES($1, $2, $3, $4, $5)';
+    const values = [firstname, lastname, email, service, details];
 
-    // Query the PostgreSQL database
-    const result = await pool.query(query, values);
+    // Insert form data into the PostgreSQL database
+    await pool.query(query, values);
 
-    res.json(result.rows);
+    res.send('Request submitted successfully.');
   } catch (error) {
-    console.error('Error querying request:', error);
-    res.status(500).send('Failed to query request.');
+    console.error('Error submitting request:', error);
+    res.status(500).send('Failed to submit request.');
   }
 });
 
