@@ -1,9 +1,10 @@
 const express = require('express');
 const { Pool } = require('pg');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
-const port = process.env.port;
+const port = process.env.port || 5433;
 
 // Configure PostgreSQL connection
 const pool = new Pool({
@@ -17,6 +18,7 @@ const pool = new Pool({
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 // POST endpoint to receive form data
 app.post('/submitRequest', async (req, res) => {
